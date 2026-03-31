@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ketzür-Rockt</title>
+  <meta name="description" content="Offizielle Webseite von Ketzür-Rockt – Verein, Termine, Kontakt und Vereinsleben." />
+  <style>
+    :root {
+      --bg: #0f1012;
+      --panel: #181a1f;
+      --panel-2: #22252c;
+      --text: #f5f7fb;
+      --muted: #c5cad3;
+      --accent: #d9151f;
+      --accent-dark: #a80f17;
+      --border: #2f333c;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #0d0e10 0%, #12151a 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(15, 16, 18, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 72px;
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+
+    .brand span { color: var(--accent); }
+
+    .menu {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.98rem;
+      color: var(--muted);
+    }
+
+    .menu a:hover { color: var(--text); }
+
+    .hero {
+      padding: 84px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-card,
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    .hero-card {
+      padding: 34px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(217, 21, 31, 0.12);
+      color: #ffb7bc;
+      border: 1px solid rgba(217, 21, 31, 0.28);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.84rem;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3 { margin-top: 0; }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.06rem;
+      margin-bottom: 24px;
+      max-width: 58ch;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: 0.18s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: #4a505b;
+      transform: translateY(-1px);
+    }
+
+    .logo-placeholder {
+      padding: 26px;
+      min-height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--muted);
+      background:
+        linear-gradient(180deg, rgba(217, 21, 31, 0.12), rgba(217, 21, 31, 0.02)),
+        linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+    }
+
+    .logo-placeholder strong {
+      display: block;
+      color: white;
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    section {
+      padding: 28px 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      margin-bottom: 10px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 70ch;
+      margin-bottom: 22px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      padding: 24px;
+      height: 100%;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.18rem;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+    }
+
+    .card ul {
+      padding-left: 18px;
+      margin-bottom: 0;
+    }
+
+    .events-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .event-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 18px;
+      align-items: center;
+      padding: 16px;
+      border-radius: 18px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+    }
+
+    .event-date {
+      background: rgba(217, 21, 31, 0.12);
+      border: 1px solid rgba(217, 21, 31, 0.28);
+      border-radius: 14px;
+      padding: 14px 10px;
+      text-align: center;
+      color: white;
+      font-weight: 800;
+    }
+
+    .event-date small {
+      display: block;
+      color: #ffb7bc;
+      font-size: 0.8rem;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    .contact-box p {
+      margin: 8px 0;
+    }
+
+    footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-box {
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+        padding: 14px 0;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .event-item {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card,
+      .card,
+      .logo-placeholder {
+        padding: 20px;
+      }
+
+      .menu {
+        gap: 12px;
+        font-size: 0.92rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#start" class="brand">Ketzür-<span>Rockt</span></a>
+      <nav class="menu">
+        <a href="#ueber-uns">Über uns</a>
+        <a href="#termine">Termine</a>
+        <a href="#vereinsleben">Vereinsleben</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="#impressum">Impressum</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="start">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <div class="eyebrow">Offizielle Vereinswebseite</div>
+          <h1>Ketzür-Rockt</h1>
+          <p>
+            Willkommen bei Ketzür-Rockt. Hier findest du Informationen über unseren Verein,
+            kommende Termine, Eindrücke aus dem Vereinsleben und die wichtigsten Kontaktmöglichkeiten.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#termine">Zu den Terminen</a>
+            <a class="btn btn-secondary" href="#kontakt">Kontakt aufnehmen</a>
+          </div>
+        </div>
+
+        <div class="hero-card logo-placeholder">
+          <div>
+            <strong>Hier kommt euer Vereinslogo hin</strong>
+            <div>
+              Ich habe die Seite absichtlich schon fertig vorbereitet.
+              Im nächsten Schritt fügen wir dein hochgeladenes Logo ein und ersetzen alle Platzhaltertexte.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ueber-uns">
+      <div class="container">
+        <h2 class="section-title">Über uns</h2>
+        <p class="section-intro">
+          Dieser Bereich ist für eine kurze, klare Vorstellung eures Vereins gedacht.
+          Zum Beispiel: Wer ihr seid, was euch ausmacht, wo ihr aktiv seid und worüber man bei euch mitmachen kann.
+        </p>
+        <div class="grid-3">
+          <article class="card">
+            <h3>Wer wir sind</h3>
+            <p>
+              Ketzür-Rockt ist ein engagierter Verein mit Gemeinschaft, Energie und Herz.
+              Hier kannst du zwei bis vier Sätze zu eurem Verein eintragen.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Was wir machen</h3>
+            <p>
+              Beschreibe hier eure Aktivitäten, Veranstaltungen, Projekte oder euren Vereinszweck.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Mitmachen</h3>
+            <p>
+              Schreib hier rein, wie Interessierte euch erreichen oder Mitglied werden können.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="termine">
+      <div class="container">
+        <h2 class="section-title">Termine</h2>
+        <p class="section-intro">
+          Hier stehen eure nächsten Veranstaltungen, Treffen oder Aktionen.
+        </p>
+        <div class="events-list">
+          <div class="event-item">
+            <div class="event-date">12.09.<small>19:00 Uhr</small></div>
+            <div>
+              <h3>Vereinstreffen</h3>
+              <p>Ort ergänzen – kurzer Hinweis, worum es bei dem Termin geht.</p>
+            </div>
+          </div>
+          <div class="event-item">
+            <div class="event-date">28.09.<small>18:30 Uhr</small></div>
+            <div>
+              <h3>Abendveranstaltung</h3>
+              <p>Ort ergänzen – kurze Beschreibung zum Ablauf oder Thema.</p>
+            </div>
+          </div>
+          <div class="event-item">
+            <div class="event-date">10.10.<small>20:00 Uhr</small></div>
+            <div>
+              <h3>Besonderes Event</h3>
+              <p>Hier kann später eine Ankündigung oder ein Highlight rein.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vereinsleben">
+      <div class="container">
+        <h2 class="section-title">Vereinsleben</h2>
+        <p class="section-intro">
+          In diesem Bereich können Bilder, kurze Berichte oder Eindrücke aus eurem Vereinsalltag stehen.
+        </p>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Stimmung & Gemeinschaft</h3>
+            <p>
+              Platz für einen Text über das, was euren Verein besonders macht.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Fotos & Highlights</h3>
+            <p>
+              Später können wir hier eine kleine Galerie oder mehrere Vereinsfotos einbauen.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="container">
+        <h2 class="section-title">Kontakt</h2>
+        <p class="section-intro">
+          Hier sollten eure wichtigsten Kontaktdaten stehen, damit man euch schnell erreicht.
+        </p>
+        <div class="grid-2">
+          <article class="card contact-box">
+            <h3>Kontaktinformationen</h3>
+            <p><strong>E-Mail:</strong> kontakt@ketzuer-rockt.de</p>
+            <p><strong>Telefon:</strong> Noch ergänzen</p>
+            <p><strong>Adresse:</strong> Noch ergänzen</p>
+          </article>
+          <article class="card">
+            <h3>Wichtiger Hinweis</h3>
+            <p>
+              Für eine echte Vereinswebseite in Deutschland brauchst du später in der Regel noch
+              ein Impressum und eine Datenschutzerklärung. Die bauen wir als Nächstes ordentlich ein.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="impressum">
+    <div class="container footer-box">
+      <div>
+        <strong>Ketzür-Rockt</strong><br />
+        Vereinswebseite – Platzhalter für Impressum und Datenschutz
+      </div>
+      <div>
+        © 2026 Ketzür-Rockt
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
