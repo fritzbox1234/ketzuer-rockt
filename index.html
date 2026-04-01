@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ketzür-Rockt</title>
-  <meta name="description" content="Offizielle Webseite von Ketzür-Rockt – Verein, Termine, Kontakt und Vereinsleben." />
+  <title>Ketzür-Rockt e.V.</title>
+  <meta name="description" content="Offizielle Webseite von Ketzür-Rockt – Verein, Termine und Vereinsleben." />
   <style>
     :root {
       --bg: #0f1012;
@@ -148,17 +148,6 @@
       transform: translateY(-1px);
     }
 
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border-color: var(--border);
-    }
-
-    .btn-secondary:hover {
-      border-color: #4a505b;
-      transform: translateY(-1px);
-    }
-
     .logo-placeholder {
       padding: 26px;
       min-height: 340px;
@@ -259,10 +248,6 @@
       font-weight: 600;
     }
 
-    .contact-box p {
-      margin: 8px 0;
-    }
-
     footer {
       padding: 34px 0 48px;
       color: var(--muted);
@@ -272,10 +257,29 @@
     .footer-box {
       border-top: 1px solid var(--border);
       padding-top: 22px;
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
+      display: grid;
+      gap: 16px;
+    }
+
+    .legal-box {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .legal-box h2 {
+      margin-bottom: 14px;
+      font-size: 1.4rem;
+    }
+
+    .legal-box p,
+    .legal-box li {
+      color: var(--muted);
+    }
+
+    .legal-box strong {
+      color: var(--text);
     }
 
     @media (max-width: 900px) {
@@ -303,7 +307,8 @@
 
       .hero-card,
       .card,
-      .logo-placeholder {
+      .logo-placeholder,
+      .legal-box {
         padding: 20px;
       }
 
@@ -311,19 +316,31 @@
         gap: 12px;
         font-size: 0.92rem;
       }
+
+	.gallery {
+  	display: grid;
+  	grid-template-columns: 1fr 1fr;
+  	gap: 12px;
+	}
+
+	.gallery img {
+ 	 width: 100%;
+ 	 border-radius: 12px;
+  	object-fit: cover;
+	}
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <a href="#start" class="brand">Ketzür-<span>Rockt</span></a>
+      <a href="#start" class="brand">Ketzür-<span>Rockt e.V.</span></a>
       <nav class="menu">
         <a href="#ueber-uns">Über uns</a>
-        <a href="#termine">Termine</a>
-        <a href="#vereinsleben">Vereinsleben</a>
-        <a href="#kontakt">Kontakt</a>
+        <a href="#termine">Wann und wo</a>
+        <a href="#vereinsleben">Rückblicke</a>
         <a href="#impressum">Impressum</a>
+        <a href="#datenschutz">Datenschutz</a>
       </nav>
     </div>
   </header>
@@ -333,26 +350,19 @@
       <div class="container hero-grid">
         <div class="hero-card">
           <div class="eyebrow">Offizielle Vereinswebseite</div>
-          <h1>Ketzür-Rockt</h1>
+          <h1>Ketzür-Rockt e.V.</h1>
           <p>
             Willkommen bei Ketzür-Rockt. Hier findest du Informationen über unseren Verein,
-            kommende Termine, Eindrücke aus dem Vereinsleben und die wichtigsten Kontaktmöglichkeiten.
+            den kommenden Veranstaltungstermin und Eindrücke der letzten Jahre.
           </p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="#termine">Zu den Terminen</a>
-            <a class="btn btn-secondary" href="#kontakt">Kontakt aufnehmen</a>
+            <a class="btn btn-primary" href="#termine">zum Open-Air-Termin</a>
           </div>
         </div>
 
-        <div class="hero-card logo-placeholder">
-          <div>
-            <strong>Hier kommt euer Vereinslogo hin</strong>
-            <div>
-              Ich habe die Seite absichtlich schon fertig vorbereitet.
-              Im nächsten Schritt fügen wir dein hochgeladenes Logo ein und ersetzen alle Platzhaltertexte.
-            </div>
-          </div>
-        </div>
+       <div class="hero-card logo-placeholder">
+  	<img src="logo.jpg" alt="Ketzür-Rockt Logo" style="max-width: 100%; height: auto;" />
+		</div> 
       </div>
     </section>
 
@@ -360,27 +370,30 @@
       <div class="container">
         <h2 class="section-title">Über uns</h2>
         <p class="section-intro">
-          Dieser Bereich ist für eine kurze, klare Vorstellung eures Vereins gedacht.
-          Zum Beispiel: Wer ihr seid, was euch ausmacht, wo ihr aktiv seid und worüber man bei euch mitmachen kann.
+          Ein kleiner Einblick in unseren Verein:
         </p>
         <div class="grid-3">
           <article class="card">
             <h3>Wer wir sind</h3>
             <p>
-              Ketzür-Rockt ist ein engagierter Verein mit Gemeinschaft, Energie und Herz.
-              Hier kannst du zwei bis vier Sätze zu eurem Verein eintragen.
+              Ketzür-Rockt e.V. ist ein eingetragener Verein aus Ketzür, der sich der Förderung regionaler Musik und Kultur widmet.
+              Bereits seit 2001 organisieren wir jährlich ein Open-Air-Festival und setzen uns für Gemeinschaft, Engagement und kulturelle
+              Vielfalt in der Region ein.
             </p>
           </article>
           <article class="card">
             <h3>Was wir machen</h3>
             <p>
-              Beschreibe hier eure Aktivitäten, Veranstaltungen, Projekte oder euren Vereinszweck.
+              Wir veranstalten jedes Jahr das Ketzür-Rockt Open-Air in der Kiesgrube bei Ketzür. Der Eintritt ist frei,
+              stattdessen werden Spenden gesammelt, die für gemeinnützige Zwecke eingesetzt werden - unter anderem
+              zur Unterstützung von Kitas und Schulen im Amt Beetzsee.
             </p>
           </article>
           <article class="card">
             <h3>Mitmachen</h3>
             <p>
-              Schreib hier rein, wie Interessierte euch erreichen oder Mitglied werden können.
+              Du hast Lust, Teil von Ketzür-Rockt zu werden? Ob als Helfer/in, Unterstützer/in oder Mitglied, jeder ist
+              herzlich willkommen. Jeder, der Gemeinschaft, Musik, Kultur und Zusammenhalt lebt, ist bei uns genau richtig.
             </p>
           </article>
         </div>
@@ -389,18 +402,19 @@
 
     <section id="termine">
       <div class="container">
-        <h2 class="section-title">Termine</h2>
+        <h2 class="section-title">Wann und Wo</h2>
         <p class="section-intro">
-          Hier stehen eure nächsten Veranstaltungen, Treffen oder Aktionen.
+          Open-Air Veranstaltungstermin:
         </p>
         <div class="events-list">
           <div class="event-item">
-            <div class="event-date">12.09.<small>19:00 Uhr</small></div>
+            <div class="event-date">29.08.26<small>ab 18:00 Uhr</small></div>
             <div>
-              <h3>Vereinstreffen</h3>
-              <p>Ort ergänzen – kurzer Hinweis, worum es bei dem Termin geht.</p>
+              <h3>Ketzür-Rockt Open-Air 2026</h3>
+              <p>Kiesgrube – Zelt aufschlagen oder einfach nur feiern, jeder ist willkommen.</p>
             </div>
           </div>
+          <!--
           <div class="event-item">
             <div class="event-date">28.09.<small>18:30 Uhr</small></div>
             <div>
@@ -415,66 +429,123 @@
               <p>Hier kann später eine Ankündigung oder ein Highlight rein.</p>
             </div>
           </div>
+          -->
         </div>
       </div>
     </section>
 
     <section id="vereinsleben">
       <div class="container">
-        <h2 class="section-title">Vereinsleben</h2>
+        <h2 class="section-title">Rückblicke</h2>
         <p class="section-intro">
-          In diesem Bereich können Bilder, kurze Berichte oder Eindrücke aus eurem Vereinsalltag stehen.
+          Bilder und Eindrücke vergangener Festivaltage:
         </p>
-        <div class="grid-2">
-          <article class="card">
-            <h3>Stimmung & Gemeinschaft</h3>
-            <p>
-              Platz für einen Text über das, was euren Verein besonders macht.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Fotos & Highlights</h3>
-            <p>
-              Später können wir hier eine kleine Galerie oder mehrere Vereinsfotos einbauen.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="kontakt">
-      <div class="container">
-        <h2 class="section-title">Kontakt</h2>
-        <p class="section-intro">
-          Hier sollten eure wichtigsten Kontaktdaten stehen, damit man euch schnell erreicht.
-        </p>
-        <div class="grid-2">
-          <article class="card contact-box">
-            <h3>Kontaktinformationen</h3>
-            <p><strong>E-Mail:</strong> kontakt@ketzuer-rockt.de</p>
-            <p><strong>Telefon:</strong> Noch ergänzen</p>
-            <p><strong>Adresse:</strong> Noch ergänzen</p>
-          </article>
-          <article class="card">
-            <h3>Wichtiger Hinweis</h3>
-            <p>
-              Für eine echte Vereinswebseite in Deutschland brauchst du später in der Regel noch
-              ein Impressum und eine Datenschutzerklärung. Die bauen wir als Nächstes ordentlich ein.
-            </p>
-          </article>
-        </div>
+       	<div class="grid-2">
+  		<article class="card">
+   	 	<div class="gallery">
+      			<img src="Foto_abends_Bühne_24.jpeg" alt="Festival Bühne" />
+      			<img src="Foto_alle_vor_Bühne_24.jpeg" alt="Publikum" />
+    		</div>
+  	</article>
+	</div>
       </div>
     </section>
   </main>
 
-  <footer id="impressum">
+  <footer>
     <div class="container footer-box">
-      <div>
-        <strong>Ketzür-Rockt</strong><br />
-        Vereinswebseite – Platzhalter für Impressum und Datenschutz
+      <div class="legal-box" id="impressum">
+        <h2>Impressum</h2>
+        <p><strong>Angaben gemäß § 5 DDG</strong></p>
+        <p><strong>KETZÜR-ROCKT e.V.</strong></p>
+        <p>
+          Ketzürer Dorfstraße 32<br>
+          14778 Beetzseeheide OT Ketzür
+        </p>
+        <p>
+          <strong>Vertreten durch den Vorstand:</strong><br>
+          Ivan Niezijewski, 1. Vorsitzender<br>
+          Aaron Schubert, stellvertretender Vorsitzender
+        </p>
+        <p>
+          <strong>Webseite / i. A.:</strong><br>
+          Chris Lemke
+        </p>
+        <p>
+          <strong>Vereinsregister:</strong><br>
+          Amtsgericht Potsdam, VR 8049 P
+        </p>
+        <p>
+          <strong>E-Mail:</strong><br>
+          kontakt@ketzuer-rockt.de
+        </p>
+        <p>
+          <strong>Urheberrecht</strong><br>
+          Die durch die Seitenbetreiber erstellten Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht.
+          Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
+          Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+        </p>
       </div>
+
+      <div class="legal-box" id="datenschutz">
+        <h2>Datenschutzerklärung</h2>
+
+        <p><strong>1. Allgemeine Hinweise</strong></p>
+        <p>
+          Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir behandeln Ihre personenbezogenen Daten
+          vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
+        </p>
+
+        <p><strong>2. Verantwortlicher</strong></p>
+        <p>
+          Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
+          KETZÜR-ROCKT e.V.<br>
+          i. A. Fritz Lemke (Webseite)<br>
+          Anschrift: siehe Impressum<br>
+          E-Mail: kontakt@ketzuer-rockt.de
+        </p>
+
+        <p><strong>3. Hosting</strong></p>
+        <p>
+          Diese Website wird bei Netlify gehostet. Beim Aufruf der Website können durch den Hosting-Anbieter technisch
+          erforderliche Informationen in Server-Log-Dateien verarbeitet werden. Dazu können insbesondere IP-Adresse,
+          Datum und Uhrzeit des Zugriffs, Browsertyp, Betriebssystem sowie weitere technische Informationen gehören.
+        </p>
+
+        <p><strong>4. Zweck der Verarbeitung</strong></p>
+        <p>
+          Die Verarbeitung dieser Daten erfolgt, um die Website technisch bereitzustellen, die Stabilität und Sicherheit
+          zu gewährleisten und eine störungsfreie Auslieferung der Inhalte sicherzustellen.
+        </p>
+
+        <p><strong>5. Rechtsgrundlage</strong></p>
+        <p>
+          Die Verarbeitung erfolgt auf Grundlage der gesetzlichen Vorgaben der Datenschutz-Grundverordnung, soweit dies
+          für die technische Bereitstellung und Sicherheit der Website erforderlich ist.
+        </p>
+
+        <p><strong>6. Keine Kontaktformulare / keine aktive Dateneingabe</strong></p>
+        <p>
+          Auf dieser Website wird derzeit kein Kontaktformular bereitgestellt. Eine aktive Eingabe personenbezogener Daten
+          durch Besucherinnen und Besucher ist über die Website derzeit nicht vorgesehen.
+        </p>
+
+        <p><strong>7. Ihre Rechte</strong></p>
+        <p>
+          Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf Auskunft über Ihre
+          gespeicherten personenbezogenen Daten, auf Berichtigung, Löschung, Einschränkung der Verarbeitung sowie
+          auf Widerspruch gegen die Verarbeitung.
+        </p>
+
+        <p><strong>8. SSL- bzw. TLS-Verschlüsselung</strong></p>
+        <p>
+          Diese Website nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung
+          erkennen Sie daran, dass die Adresszeile des Browsers mit „https://“ beginnt.
+        </p>
+      </div>
+
       <div>
-        © 2026 Ketzür-Rockt
+        © 2026 KETZÜR-ROCKT e.V.
       </div>
     </div>
   </footer>
