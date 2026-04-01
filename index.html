@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ketzür-Rockt e.V.</title>
-  <meta name="description" content="Offizielle Webseite von Ketzür-Rockt – Verein, Termine und Vereinsleben." />
+  <title>KETZÜR-ROCKT e.V.</title>
+  <meta name="description" content="Offizielle Webseite von KETZÜR-ROCKT – Verein, Termine und Rückblicke." />
   <style>
     :root {
       --bg: #0f1012;
       --panel: #181a1f;
-      --panel-2: #22252c;
       --text: #f5f7fb;
       --muted: #c5cad3;
       --accent: #d9151f;
       --accent-dark: #a80f17;
       --border: #2f333c;
-      --max: 1120px;
+      --max: 1240px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -28,8 +28,15 @@
       line-height: 1.55;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
     .container {
       width: min(calc(100% - 32px), var(--max));
@@ -60,7 +67,10 @@
       color: var(--text);
     }
 
-    .brand span { color: var(--accent); }
+    .brand-main {
+      color: var(--accent);
+      text-transform: uppercase;
+    }
 
     .menu {
       display: flex;
@@ -70,7 +80,9 @@
       color: var(--muted);
     }
 
-    .menu a:hover { color: var(--text); }
+    .menu a:hover {
+      color: var(--text);
+    }
 
     .hero {
       padding: 84px 0 56px;
@@ -78,12 +90,22 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: center;
+      grid-template-columns: 1fr;
+      align-items: stretch;
     }
 
-    .hero-card,
+    .hero-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero-top {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     .card {
       background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
       border: 1px solid var(--border);
@@ -91,34 +113,53 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.18);
     }
 
-    .hero-card {
-      padding: 34px;
-    }
-
     .eyebrow {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      width: auto;
+      max-width: max-content;
       background: rgba(217, 21, 31, 0.12);
       color: #ffb7bc;
       border: 1px solid rgba(217, 21, 31, 0.28);
       border-radius: 999px;
-      padding: 8px 12px;
+      padding: 8px 14px;
       font-size: 0.84rem;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+      white-space: nowrap;
     }
 
-    h1, h2, h3 { margin-top: 0; }
-
-    h1 {
-      font-size: clamp(2.2rem, 5vw, 4.2rem);
-      line-height: 1.05;
-      margin-bottom: 16px;
+    .hero-logo {
+      width: min(100%, 1040px);
+      margin-bottom: 0;
     }
 
-    .hero p {
+    .hero-logo img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+
+    .hero-bottom-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: clamp(20px, 3vw, 32px);
+      max-width: min(100%, 1180px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    .hero-bottom-card p {
       color: var(--muted);
-      font-size: 1.06rem;
-      margin-bottom: 24px;
-      max-width: 58ch;
+      font-size: clamp(1rem, 1.3vw, 1.18rem);
+      margin-top: 0;
+      margin-bottom: 28px;
+      max-width: min(100%, 980px);
     }
 
     .cta-row {
@@ -136,6 +177,7 @@
       font-weight: 700;
       transition: 0.18s ease;
       border: 1px solid transparent;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -146,24 +188,6 @@
     .btn-primary:hover {
       background: var(--accent-dark);
       transform: translateY(-1px);
-    }
-
-    .logo-placeholder {
-  padding: 0;
-  min-height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  box-shadow: none;
-}
-
-    .logo-placeholder strong {
-      display: block;
-      color: white;
-      font-size: 1.35rem;
-      margin-bottom: 10px;
     }
 
     section {
@@ -187,12 +211,6 @@
       gap: 20px;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
     .card {
       padding: 24px;
       height: 100%;
@@ -203,13 +221,9 @@
       font-size: 1.18rem;
     }
 
-    .card p, .card li {
+    .card p,
+    .card li {
       color: var(--muted);
-    }
-
-    .card ul {
-      padding-left: 18px;
-      margin-bottom: 0;
     }
 
     .events-list {
@@ -218,32 +232,81 @@
     }
 
     .event-item {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 18px;
-      align-items: center;
+      display: block;
       padding: 16px;
       border-radius: 18px;
       background: var(--panel);
       border: 1px solid var(--border);
     }
 
-    .event-date {
-      background: rgba(217, 21, 31, 0.12);
-      border: 1px solid rgba(217, 21, 31, 0.28);
-      border-radius: 14px;
-      padding: 14px 10px;
-      text-align: center;
-      color: white;
-      font-weight: 800;
+    .event-text h3 {
+      margin-bottom: 14px;
+      font-size: 1.14rem;
     }
 
-    .event-date small {
-      display: block;
+    .event-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(217, 21, 31, 0.16);
+      border: 1px solid rgba(217, 21, 31, 0.45);
+      border-radius: 14px;
+      padding: 14px 20px;
+      color: white;
+      font-weight: 800;
+      font-size: 1.35rem;
+      line-height: 1.2;
+      flex-wrap: wrap;
+    }
+
+    .event-date .event-time {
+      font-size: 1.05rem;
+      font-weight: 700;
       color: #ffb7bc;
-      font-size: 0.8rem;
-      margin-top: 4px;
-      font-weight: 600;
+    }
+
+    .map-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .map-card h3 {
+      margin-bottom: 14px;
+      font-size: 1.18rem;
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 420px;
+      border: 0;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .map-note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .gallery-card {
+      width: 100%;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
     }
 
     footer {
@@ -263,17 +326,21 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
       border: 1px solid var(--border);
       border-radius: 18px;
-      padding: 22px;
+      padding: 18px;
+      font-size: 0.88rem;
     }
 
     .legal-box h2 {
-      margin-bottom: 14px;
-      font-size: 1.4rem;
+      margin-bottom: 12px;
+      font-size: 1.08rem;
     }
 
     .legal-box p,
     .legal-box li {
       color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.45;
+      margin: 7px 0;
     }
 
     .legal-box strong {
@@ -282,8 +349,7 @@
 
     @media (max-width: 900px) {
       .hero-grid,
-      .grid-3,
-      .grid-2 {
+      .grid-3 {
         grid-template-columns: 1fr;
       }
 
@@ -296,17 +362,48 @@
       .hero {
         padding-top: 48px;
       }
+
+      .hero-logo {
+        width: 100%;
+      }
+
+      .hero-bottom-card {
+        max-width: 100%;
+      }
+
+      .hero-bottom-card p {
+        max-width: 100%;
+      }
     }
 
-    @media (max-width: 560px) {
-      .event-item {
+    @media (max-width: 700px) {
+      .gallery {
         grid-template-columns: 1fr;
       }
 
-      .hero-card,
+      .gallery img {
+        height: auto;
+      }
+
+      .map-frame {
+        height: 320px;
+      }
+
+      .event-date {
+        font-size: 1.15rem;
+        gap: 10px;
+        padding: 12px 16px;
+      }
+
+      .event-date .event-time {
+        font-size: 0.98rem;
+      }
+    }
+
+    @media (max-width: 560px) {
       .card,
-      .logo-placeholder,
-      .legal-box {
+      .legal-box,
+      .hero-bottom-card {
         padding: 20px;
       }
 
@@ -315,24 +412,35 @@
         font-size: 0.92rem;
       }
 
-	.gallery {
-  	display: grid;
-  	grid-template-columns: 1fr 1fr;
-  	gap: 12px;
-	}
+      .event-date {
+        width: 100%;
+        justify-content: center;
+      }
 
-	.gallery img {
- 	 width: 100%;
- 	 border-radius: 12px;
-  	object-fit: cover;
-	}
+      .eyebrow {
+        white-space: normal;
+        max-width: 100%;
+      }
+
+      .hero-logo {
+        margin-bottom: 0;
+      }
+
+      .hero-bottom-card p {
+        max-width: 100%;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <a href="#start" class="brand">KETZÜR-<span>ROCKT e.V.</span></a>
+      <a href="#start" class="brand">
+        <span class="brand-main" style="color:#ffffff;">
+          KETZÜR-ROCKT <span style="text-transform:none;">e.V.</span>
+        </span>
+      </a>
       <nav class="menu">
         <a href="#ueber-uns">Über uns</a>
         <a href="#termine">Wann und wo</a>
@@ -346,35 +454,37 @@
   <main>
     <section class="hero" id="start">
       <div class="container hero-grid">
-        <div class="hero-card">
-          <div class="eyebrow">Offizielle Vereinswebseite</div>
-          <h1>KETZÜR-ROCKT e.V.</h1>
-          <p>
-            Willkommen bei KETZÜR-ROCKT. Hier findest du Informationen über unseren Verein,
-            den kommenden Veranstaltungstermin und Eindrücke der letzten Jahre.
-          </p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#termine">zum Veranstaltungstermin</a>
+        <div class="hero-wrapper">
+          <div class="hero-top">
+            <div class="eyebrow">Offizielle Vereinswebseite</div>
+
+            <div class="hero-logo">
+              <img src="logo.jpg" alt="KETZÜR-ROCKT e.V. Logo" />
+            </div>
+          </div>
+
+          <div class="hero-bottom-card">
+            <p>
+              Willkommen bei Ketzür-Rockt. Hier findest du Informationen über unseren Verein,
+              den kommenden Veranstaltungstermin und Eindrücke der letzten Jahre.
+            </p>
+
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#termine">zum Veranstaltungstermin</a>
+            </div>
           </div>
         </div>
-
-       <div class="hero-card logo-placeholder">
-  	<img src="logo.jpg" alt="Ketzür-Rockt Logo" style="max-width: 100%; height: auto;" />
-		</div> 
       </div>
     </section>
 
     <section id="ueber-uns">
       <div class="container">
         <h2 class="section-title">Über uns</h2>
-        <p class="section-intro">
-          Ein kleiner Einblick in unseren Verein:
-        </p>
         <div class="grid-3">
           <article class="card">
             <h3>Wer wir sind</h3>
             <p>
-              KETZÜR-ROCKT e.V. ist ein eingetragener Verein aus Ketzür, der sich der Förderung regionaler Musik und Kultur widmet.
+              Ketzür-Rockt e.V. ist ein eingetragener Verein aus Ketzür, der sich der Förderung regionaler Musik und Kultur widmet.
               Bereits seit 2001 organisieren wir jährlich ein Open-Air-Festival und setzen uns für Gemeinschaft, Engagement und kulturelle
               Vielfalt in der Region ein.
             </p>
@@ -382,9 +492,8 @@
           <article class="card">
             <h3>Was wir machen</h3>
             <p>
-              Wir veranstalten jedes Jahr das KETZÜR-ROCKT Open-Air in der Kiesgrube bei Ketzür. Der Eintritt ist frei,
-              stattdessen werden Spenden gesammelt, die für gemeinnützige Zwecke eingesetzt werden - unter anderem
-              zur Unterstützung von Kitas und Schulen im Amt Beetzsee.
+              Wir veranstalten jedes Jahr das Ketzür-Rockt Open-Air in der Kiesgrube bei Ketzür. 
+              Der Eintritt ist frei, stattdessen werden Spenden gesammelt, die der musikalischen Förderung von Kitas und Schulen in der Region zugutekommen – etwa durch Musikinstrumente.
             </p>
           </article>
           <article class="card">
@@ -400,34 +509,42 @@
 
     <section id="termine">
       <div class="container">
-        <h2 class="section-title">Wann und Wo</h2>
-        <p class="section-intro">
-          Open-Air Veranstaltungstermin:
-        </p>
+        <h2 class="section-title">Wann und wo</h2>
+
         <div class="events-list">
           <div class="event-item">
-            <div class="event-date">29.08.26<small>ab 18:00 Uhr</small></div>
-            <div>
-              <h3>KETZÜR-ROCKT Open-Air 2026</h3>
-              <p>Kiesgrube – Zelt aufschlagen oder einfach nur feiern, jeder ist willkommen.</p>
+            <div class="event-text">
+              <h3>Datum / Uhrzeit</h3>
+              <div class="event-date">
+                <span>29.08.2026</span>
+                <span class="event-time">ab 18:00 Uhr</span>
+              </div>
             </div>
           </div>
-          <!--
-          <div class="event-item">
-            <div class="event-date">28.09.<small>18:30 Uhr</small></div>
-            <div>
-              <h3>Abendveranstaltung</h3>
-              <p>Ort ergänzen – kurze Beschreibung zum Ablauf oder Thema.</p>
-            </div>
+
+          <div class="map-card">
+            <h3>Veranstaltungsort / Anfahrt</h3>
+
+            <iframe
+              class="map-frame"
+              src="https://www.google.com/maps?q=52.502251,12.626627&hl=de&z=17&output=embed"
+              allowfullscreen=""
+              loading="lazy">
+            </iframe>
+
+            <p class="map-note">
+              Die Markierung zeigt die Einfahrt zum Parkplatz sowie zum Festivalgelände. Über diesen Zugang erreichen sowohl Festivalbesucher als auch Übernachtungsgäste das Gelände.
+            </p>
+
+            <a
+              href="https://www.google.com/maps?q=52.502251,12.626627"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+              style="margin-top: 12px;">
+              Navigation starten
+            </a>
           </div>
-          <div class="event-item">
-            <div class="event-date">10.10.<small>20:00 Uhr</small></div>
-            <div>
-              <h3>Besonderes Event</h3>
-              <p>Hier kann später eine Ankündigung oder ein Highlight rein.</p>
-            </div>
-          </div>
-          -->
         </div>
       </div>
     </section>
@@ -438,14 +555,13 @@
         <p class="section-intro">
           Bilder und Eindrücke vergangener Festivaltage:
         </p>
-       	<div class="grid-2">
-  		<article class="card">
-   	 	<div class="gallery">
-      			<img src="Foto_abends_Bühne_24.jpeg" alt="Festival Bühne" />
-      			<img src="Foto_alle_vor_Bühne_24.jpeg" alt="Publikum" />
-    		</div>
-  	</article>
-	</div>
+
+        <article class="card gallery-card">
+          <div class="gallery">
+            <img src="Foto_Abends_Bühne_24.jpeg" alt="Festival Bühne am Abend" />
+            <img src="Foto_alle_vor_Bühne_24.jpeg" alt="Besucher vor der Bühne" />
+          </div>
+        </article>
       </div>
     </section>
   </main>
@@ -462,7 +578,7 @@
         </p>
         <p>
           <strong>Vertreten durch den Vorstand:</strong><br>
-          Ivan Niezijewski, 1. Vorsitzender<br>
+          Iven Niezijewski, 1. Vorsitzender<br>
           Aaron Schubert, stellvertretender Vorsitzender
         </p>
         <p>
