@@ -431,6 +431,108 @@
         max-width: 100%;
         font-size: 1rem;
       }
+	.footer-bottom {
+  	flex-direction: column;
+ 	 align-items: flex-start;
+}
+
+	.footer-copy {
+  	text-align: left;
+}
+}
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.legal-footer-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.legal-footer-links button {
+  background: none;
+  border: none;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.legal-footer-links button:hover {
+  color: var(--accent);
+}
+
+.footer-copy {
+  color: var(--text);
+  text-align: right;
+}
+.legal-modal {
+  width: min(900px, calc(100% - 32px));
+  max-height: 85vh;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: #15171c;
+  color: var(--text);
+  padding: 0;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.65);
+}
+
+.legal-modal::backdrop {
+  background: rgba(0,0,0,0.75);
+}
+
+.legal-modal-content {
+  padding: 24px;
+  overflow: auto;
+  max-height: 85vh;
+}
+
+.legal-modal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.legal-modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.modal-close {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 999px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  background: rgba(217, 21, 31, 0.25);
+}
+
+.legal-modal p,
+.legal-modal li {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.legal-modal strong {
+  color: var(--text);
+}
     }
   </style>
 <meta name="google-site-verification" content="H0OSs400gzChPC4pfMZ5t5mmvcWEPG-6NrSFSDm4wPQ" />
@@ -487,7 +589,7 @@
           <article class="card">
             <h3>Wer wir sind</h3>
             <p>
-              KETZÜR-ROCKT e.V. ist ein eingetragener Verein aus Ketzür, der sich der Förderung regionaler Musik und Kultur widmet.
+              KETZÜR-ROCKT e.V. ist ein eingetragener gemeinnütziger Verein aus Ketzür, der sich der Förderung regionaler Musik und Kultur widmet.
               Bereits seit 2001 organisieren wir jährlich ein Open-Air-Festival und setzen uns für Gemeinschaft, Engagement und kulturelle
               Vielfalt in der Region ein.
             </p>
@@ -570,101 +672,147 @@
   </main>
 
   <footer>
-    <div class="container footer-box">
-      <div class="legal-box" id="impressum">
-        <h2>Impressum</h2>
-        <p><strong>Angaben gemäß § 5 DDG</strong></p>
-        <p><strong>KETZÜR-ROCKT e.V.</strong></p>
-        <p>
-          Ketzürer Dorfstraße 32<br>
-          14778 Beetzseeheide OT Ketzür
-        </p>
-        <p>
-          <strong>Vertreten durch den Vorstand:</strong><br>
-          Iven Niezijewski, 1. Vorsitzender<br>
-          Aaron Schubert, stellvertretender Vorsitzender
-        </p>
-        <p>
-          <strong>Webseite / i. A.:</strong><br>
-          Fritz Lemke
-        </p>
-        <p>
-          <strong>Vereinsregister:</strong><br>
-          Amtsgericht Potsdam, VR 8049 P
-        </p>
-        <p>
-          <strong>E-Mail:</strong><br>
-          ketzuerrockt@gmail.com
-        </p>
-        <p>
-          <strong>Urheberrecht</strong><br>
-          Die durch die Seitenbetreiber erstellten Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht.
-          Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
-          Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
-        </p>
+  <div class="container footer-box">
+    <div class="footer-bottom">
+      <div class="legal-footer-links">
+        <button type="button" data-open-modal="impressum-modal">Impressum</button>
+        <button type="button" data-open-modal="datenschutz-modal">Datenschutzerklärung</button>
       </div>
 
-      <div class="legal-box" id="datenschutz">
-        <h2>Datenschutzerklärung</h2>
-
-        <p><strong>1. Allgemeine Hinweise</strong></p>
-        <p>
-          Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir behandeln Ihre personenbezogenen Daten
-          vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
-        </p>
-
-        <p><strong>2. Verantwortlicher</strong></p>
-        <p>
-          Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
-          KETZÜR-ROCKT e.V.<br>
-          i. A. Fritz Lemke (Webseite)<br>
-          Anschrift: siehe Impressum<br>
-          E-Mail: ketzuerrockt@gmail.com
-        </p>
-
-        <p><strong>3. Hosting</strong></p>
-        <p>
-          Diese Website wird bei Netlify gehostet. Beim Aufruf der Website können durch den Hosting-Anbieter technisch
-          erforderliche Informationen in Server-Log-Dateien verarbeitet werden. Dazu können insbesondere IP-Adresse,
-          Datum und Uhrzeit des Zugriffs, Browsertyp, Betriebssystem sowie weitere technische Informationen gehören.
-        </p>
-
-        <p><strong>4. Zweck der Verarbeitung</strong></p>
-        <p>
-          Die Verarbeitung dieser Daten erfolgt, um die Website technisch bereitzustellen, die Stabilität und Sicherheit
-          zu gewährleisten und eine störungsfreie Auslieferung der Inhalte sicherzustellen.
-        </p>
-
-        <p><strong>5. Rechtsgrundlage</strong></p>
-        <p>
-          Die Verarbeitung erfolgt auf Grundlage der gesetzlichen Vorgaben der Datenschutz-Grundverordnung, soweit dies
-          für die technische Bereitstellung und Sicherheit der Website erforderlich ist.
-        </p>
-
-        <p><strong>6. Keine Kontaktformulare / keine aktive Dateneingabe</strong></p>
-        <p>
-          Auf dieser Website wird derzeit kein Kontaktformular bereitgestellt. Eine aktive Eingabe personenbezogener Daten
-          durch Besucherinnen und Besucher ist über die Website derzeit nicht vorgesehen.
-        </p>
-
-        <p><strong>7. Ihre Rechte</strong></p>
-        <p>
-          Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf Auskunft über Ihre
-          gespeicherten personenbezogenen Daten, auf Berichtigung, Löschung, Einschränkung der Verarbeitung sowie
-          auf Widerspruch gegen die Verarbeitung.
-        </p>
-
-        <p><strong>8. SSL- bzw. TLS-Verschlüsselung</strong></p>
-        <p>
-          Diese Website nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung
-          erkennen Sie daran, dass die Adresszeile des Browsers mit „https://“ beginnt.
-        </p>
-      </div>
-
-      <div>
+      <div class="footer-copy">
         © 2026 KETZÜR-ROCKT e.V.
       </div>
     </div>
+  </div>
+</footer>
+
+<dialog class="legal-modal" id="impressum-modal">
+  <div class="legal-modal-content">
+    <div class="legal-modal-header">
+      <h2>Impressum</h2>
+      <button class="modal-close" type="button" data-close-modal>&times;</button>
+    </div>
+
+    <p><strong>Angaben gemäß § 5 DDG</strong></p>
+    <p><strong>KETZÜR-ROCKT gem. e.V.</strong></p>
+    <p>
+      Ketzürer Dorfstraße 32<br>
+      14778 Beetzseeheide OT Ketzür
+    </p>
+    <p>
+      <strong>Vertreten durch den Vorstand:</strong><br>
+      Iven Niezijewski, 1. Vorsitzender<br>
+      Aaron Schubert, stellvertretender Vorsitzender
+    </p>
+    <p>
+      <strong>Webseite / i. A.:</strong><br>
+      Fritz Lemke
+    </p>
+    <p>
+      <strong>Vereinsregister:</strong><br>
+      Amtsgericht Potsdam, VR 8049 P
+    </p>
+    <p>
+      <strong>E-Mail:</strong><br>
+      ketzuerrockt@gmail.com
+    </p>
+    <p>
+      <strong>Urheberrecht</strong><br>
+      Die durch die Seitenbetreiber erstellten Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht.
+      Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
+      Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+    </p>
+  </div>
+</dialog>
+
+<dialog class="legal-modal" id="datenschutz-modal">
+  <div class="legal-modal-content">
+    <div class="legal-modal-header">
+      <h2>Datenschutzerklärung</h2>
+      <button class="modal-close" type="button" data-close-modal>&times;</button>
+    </div>
+
+    <p><strong>1. Allgemeine Hinweise</strong></p>
+    <p>
+      Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir behandeln Ihre personenbezogenen Daten
+      vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
+    </p>
+
+    <p><strong>2. Verantwortlicher</strong></p>
+    <p>
+      Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
+      KETZÜR-ROCKT e.V.<br>
+      i. A. Fritz Lemke (Webseite)<br>
+      Anschrift: siehe Impressum<br>
+      E-Mail: ketzuerrockt@gmail.com
+    </p>
+
+    <p><strong>3. Hosting</strong></p>
+    <p>
+      Diese Website wird bei Netlify gehostet. Beim Aufruf der Website können durch den Hosting-Anbieter technisch
+      erforderliche Informationen in Server-Log-Dateien verarbeitet werden. Dazu können insbesondere IP-Adresse,
+      Datum und Uhrzeit des Zugriffs, Browsertyp, Betriebssystem sowie weitere technische Informationen gehören.
+    </p>
+
+    <p><strong>4. Zweck der Verarbeitung</strong></p>
+    <p>
+      Die Verarbeitung dieser Daten erfolgt, um die Website technisch bereitzustellen, die Stabilität und Sicherheit
+      zu gewährleisten und eine störungsfreie Auslieferung der Inhalte sicherzustellen.
+    </p>
+
+    <p><strong>5. Rechtsgrundlage</strong></p>
+    <p>
+      Die Verarbeitung erfolgt auf Grundlage der gesetzlichen Vorgaben der Datenschutz-Grundverordnung, soweit dies
+      für die technische Bereitstellung und Sicherheit der Website erforderlich ist.
+    </p>
+
+    <p><strong>6. Keine Kontaktformulare / keine aktive Dateneingabe</strong></p>
+    <p>
+      Auf dieser Website wird derzeit kein Kontaktformular bereitgestellt. Eine aktive Eingabe personenbezogener Daten
+      durch Besucherinnen und Besucher ist über die Website derzeit nicht vorgesehen.
+    </p>
+
+    <p><strong>7. Ihre Rechte</strong></p>
+    <p>
+      Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf Auskunft über Ihre
+      gespeicherten personenbezogenen Daten, auf Berichtigung, Löschung, Einschränkung der Verarbeitung sowie
+      auf Widerspruch gegen die Verarbeitung.
+    </p>
+
+    <p><strong>8. SSL- bzw. TLS-Verschlüsselung</strong></p>
+    <p>
+      Diese Website nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung
+      erkennen Sie daran, dass die Adresszeile des Browsers mit „https://“ beginnt.
+    </p>
+  </div>
+</dialog>
   </footer>
+<script>
+  document.querySelectorAll("[data-open-modal]").forEach(function (button) {
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
+      const modalId = button.getAttribute("data-open-modal");
+      const modal = document.getElementById(modalId);
+
+      if (modal) {
+        modal.showModal();
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-close-modal]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      button.closest("dialog").close();
+    });
+  });
+
+  document.querySelectorAll("dialog").forEach(function (modal) {
+    modal.addEventListener("click", function (event) {
+      if (event.target === modal) {
+        modal.close();
+      }
+    });
+  });
+</script>
 </body>
 </html>
